@@ -38,5 +38,4 @@ Base de datos
 
 ## Demo del sistema
 
-https://youtu.be/lOFiCubxjLg
-
+https://youtu.be/lOFiCubxjLg?si=RvEEzZOGRR9qzaLv&t=468
