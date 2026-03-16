@@ -1,0 +1,59 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mPago
+@{
+    ViewBag.Title = "consultarPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Consultar Pago</h3>
+                </div>
+                <div class="card-body p-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="table-responsive">
+                            <table class="table table-borderless mx-auto">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-end">ID Pago:</th>
+                                        <td>@Html.DisplayFor(model => model.IdPago)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">ID Paciente:</th>
+                                        <td>@Html.DisplayFor(model => model.IdPaciente)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">ID Tratamiento:</th>
+                                        <td>@Html.DisplayFor(model => model.IdTratamiento)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">Fecha:</th>
+                                        <td>@Html.DisplayFor(model => model.Fecha)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">Monto:</th>
+                                        <td>@Html.DisplayFor(model => model.Monto)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">Método de Pago:</th>
+                                        <td>@Html.DisplayFor(model => model.MetodoPago)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end">Estado:</th>
+                                        <td>@Html.DisplayFor(model => model.Pagado)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <input type="button" value="Volver" class="btn btn-secondary btn-lg"
+                               onclick="document.location.href = '@Url.Content("~/Pago/mantPagos")'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

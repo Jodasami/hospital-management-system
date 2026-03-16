@@ -1,0 +1,61 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mPago>
+@{
+    ViewBag.Title = "verPagosPaciente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Ver Pagos Pendientes de Paciente</h2>
+    <br />
+
+
+
+    <div class="shadow rounded-4 bg-dark p-4 mb-4">
+        @using (Html.BeginForm("verPagosPaciente", "Pago", FormMethod.Get))
+        {
+            <div class="form-group">
+                <label for="IdPaciente" class="form-label text-white">Seleccione un paciente</label>
+                @Html.DropDownList("IdPaciente", (List<SelectListItem>)ViewBag.Pacientes, "-----Paciente-----",
+                    new { @class = "form-select" })
+            </div>
+            <br />
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <button type="submit" class="btn btn-success btn-lg">Ver pagos</button>
+                <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+            </div>
+
+        }
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="table-responsive shadow rounded-4 bg-secondary p-3">
+            <h3 class="text-white mb-3">Pagos Pendientes</h3>
+            <table class="table table-hover table-secondary table-striped align-middle">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Método de Pago</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@item.Fecha.ToString("dd-MM-yyyy")</td>
+                            <td>@item.Monto</td>
+                            <td>@item.MetodoPago</td>
+                            <td>
+                                <span class="badge @(item.Pagado ? "bg-success" : "bg-warning")">
+                                    @(item.Pagado ? "Pagado" : "Pendiente")
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

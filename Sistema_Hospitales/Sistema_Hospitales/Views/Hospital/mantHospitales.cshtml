@@ -1,0 +1,103 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mHospital>
+
+@{
+    ViewBag.Title = "mantHospitales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Gestión de Hospitales</h2>
+    <br />
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <input type="button" class="btn btn-success btn-lg" onclick="document.location.href = '@Url.Content("~/Hospital/AgregarHospital")'" value="Agregar" />
+        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">Num. Hospital</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Dirección</th>
+                    <th class="text-center">Contacto</th>
+                    <th class="text-center">Detalles</th>
+                    <th class="text-center">Editar</th>
+                    <th class="text-center">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fila in Model)
+                {
+                    <tr>
+                        <td class="text-center">@fila.IdHospital</td>
+                        <td class="text-center">@fila.Nombre</td>
+                        <td class="text-center">@fila.Direccion</td>
+                        <td class="text-center">@fila.Telefono</td>
+                        <td class="text-center"><input type="button" value="Ver" class="btn btn-outline-dark btn-sm" onclick="document.location.href = '@Url.Content("~/Hospital/ConsultarHospital/" + fila.IdHospital)'" /></td>
+                        <td class="text-center"><input type="button" value="Editar" class="btn btn-outline-primary btn-sm" onclick="document.location.href = '@Url.Content("~/Hospital/ActualizarHospital/" + fila.IdHospital)'" /></td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-danger btn-sm open-delete-modal"
+                                    data-toggle="modal"
+                                    data-target="#confirmDeleteModal"
+                                    data-id="@fila.IdHospital"
+                                    data-nombre="@fila.Nombre">
+                                Eliminar
+                            </button>
+                        </td>
+                        @*<td><input type="button" value="Eliminar" class="btn btn-danger" onclick="document.location.href = '@Url.Content("~/Hospital/EliminarHospital/" + fila.IdHospital)'" /></td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar eliminación</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar a <strong id="nombreHospital"></strong>
+                    (ID: <strong id="idHospital"></strong>)?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a href="#" id="btnConfirmDelete" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript">
+    $(document).ready(function () {
+        $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Botón que abrió el modal
+            var hospitalId = button.data('id');
+            var hospitalNombre = button.data('nombre');
+
+            // Mostrar el nombre completo
+            $('#nombreHospital').text(hospitalNombre);
+
+            // 🔧 Esta línea faltaba: mostrar el ID en el modal
+            $('#idHospital').text(hospitalId);
+
+            // Enlace de eliminación
+            var url = '@Url.Action("eliminarHospital", "Hospital")' + '?id=' + hospitalId;
+            $('#btnConfirmDelete').attr('href', url);
+        });
+    });
+        </script>
+
+    }

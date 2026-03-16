@@ -1,0 +1,70 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mUsuario
+@{
+    ViewBag.Title = "Consultar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Detalle del Usuario</h3>
+                </div>
+                <div class="card-body p-2">
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th class="text-end">ID Usuario:</th>
+                                    <td>@Html.DisplayFor(model => model.IdUsuario)</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Nombre:</th>
+                                    <td>@Html.DisplayFor(model => model.UserName)</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Contraseña:</th>
+                                    <td>@Html.DisplayFor(model => model.Contrasena)</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Rol:</th>
+                                    <td>
+                                        @if (Model.IdRol == 1)
+                                        {<span>Paciente</span> }
+                                        else if (Model.IdRol == 2)
+                                        { <span>Médico</span> }
+                                        else if (Model.IdRol == 3)
+                                        { <span>Administrador</span>}
+                                    </td>
+                                </tr>
+
+                                @if (Model.IdRol == 1)
+                                {
+                                    <tr>
+                                        <th class="text-end">ID Paciente:</th>
+                                        <td>@Html.DisplayFor(model => model.IdPaciente)</td>
+                                    </tr>
+                                }
+
+                                @if (Model.IdRol == 2)
+                                {
+                                    <tr>
+                                        <th class="text-end">ID Médico:</th>
+                                        <td>@Html.DisplayFor(model => model.IdMedico)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="@Url.Content("~/Usuario/mantUsuarios")" class="btn btn-secondary btn-lg">
+                             Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

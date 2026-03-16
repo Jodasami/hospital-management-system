@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "TotalPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TotalPagos</h2>
+<h2>Total Pagado por Paciente</h2>
+
+@using (Html.BeginForm("TotalPagos", "Pago", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="idPaciente">Paciente</label>
+        @Html.DropDownList("idPaciente", (List<SelectListItem>)ViewBag.Pacientes, "Seleccione un paciente", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="fechaInicio">Fecha Inicio</label>
+        <input type="date" name="fechaInicio" class="form-control" value="@Request["fechaInicio"]" />
+    </div>
+
+    <div class="form-group">
+        <label for="fechaFin">Fecha Fin</label>
+        <input type="date" name="fechaFin" class="form-control" value="@Request["fechaFin"]" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Consultar Total</button>
+}
+
+@if (ViewBag.TotalPagado != null)
+{
+    <h3>Total pagado: ₡@ViewBag.TotalPagado</h3>
+}
+else if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-warning">@ViewBag.Mensaje</div>
+}
+
+<input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+

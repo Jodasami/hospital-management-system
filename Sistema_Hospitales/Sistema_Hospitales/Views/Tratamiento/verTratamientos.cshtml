@@ -1,0 +1,42 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mTratamiento>
+@{
+    ViewBag.Title = "verTratamientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Mis Tratamientos</h2>
+    <br />
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>ID Cita - Medico - Especialidad</th>
+                    <th>Medicamento</th>
+                    <th>Costo Total</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fila in Model)
+                {
+                    <tr class="text-center">
+                        <td>@fila.IdTratamiento</td>
+                        <td>@fila.IdCita - @fila.Medico</td>
+                        <td>@fila.Medicamento</td>
+                        <td>@fila.CostoTotal</td>
+                        <td>
+                            <a class="btn btn-outline-dark btn-sm"
+                               href="@Url.Action("consultarTratamientos", "Tratamiento", new { id = fila.IdTratamiento })">
+                                Ver
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,122 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mTratamiento_Medicamento>
+@{
+    ViewBag.Title = "mantTratamiento_Medicamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Tratamientos y Medicamentos</h2>
+    <br />
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="@Url.Action("agregarTratamiento_Medicamento", "Tratamiento_Medicamento")" class="btn btn-success btn-lg">
+            Agregar
+        </a>
+        <input type="button" value="Volver" class="btn btn-secondary  btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">ID Tratamiento</th>
+                    <th class="text-center">ID Medicamento</th>
+                    <th class="text-center">Cantidad</th>
+                    <th class="text-center">Detalles</th>
+                    <th class="text-center">Editar</th>
+                    <th class="text-center">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fila in Model)
+                {
+                    <tr class="text-center">
+                        <td>@fila.IdTratamiento</td>
+                        <td>@fila.IdMedicamento - @fila.NombreMedicamento</td>
+                        <td>@fila.Cantidad</td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-dark btn-sm"
+                               href="@Url.Action("consultarTratamiento_Medicamento", "Tratamiento_Medicamento", new { id = fila.IdTratamiento, id2 = fila.IdMedicamento })">
+                                Ver
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-primary btn-sm"
+                               href="@Url.Action("actualizarTratamiento_Medicamento", "Tratamiento_Medicamento", new { id = fila.IdTratamiento, id2 = fila.IdMedicamento })">
+                                Editar
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-danger btn-sm open-delete-modal"
+                                    data-idhospital="@fila.IdTratamiento"
+                                    data-idmedicamento="@fila.IdMedicamento"
+                                    data-nombre="Tratamiento @fila.IdTratamiento - Medicamento @fila.IdMedicamento - @fila.NombreMedicamento">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="confirmDeleteLabel">Confirmar eliminación</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar <strong id="nombreMedicamento"></strong><br />
+                (ID Hospital: <strong id="idHospital"></strong>, ID Medicamento: <strong id="idMedicamento"></strong>)?
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="#" id="btnConfirmDelete" class="btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("Documento listo. Script cargado correctamente.");
+
+            $('.open-delete-modal').on('click', function () {
+                var button = $(this);
+                var idHospital = button.data('idhospital');
+                var idMedicamento = button.data('idmedicamento');
+                var nombre = button.data('nombre');
+
+                $('#nombreMedicamento').text(nombre);
+                $('#idHospital').text(idHospital);
+                $('#idMedicamento').text(idMedicamento);
+
+                var url = '/Tratamiento_Medicamento/eliminarTratamiento_Medicamento?id=' + idHospital + '&id2=' + idMedicamento;
+
+                console.log("URL de eliminación:", url);
+
+                $('#btnConfirmDelete').attr('href', url);
+
+                // Mostrar modal con Bootstrap 5
+                var modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+                modal.show();
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+

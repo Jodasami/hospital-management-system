@@ -1,0 +1,47 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mHospital
+@{
+    ViewBag.Title = "ConsultarHospital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Detalles del Hospital</h3>
+                </div>
+                <div class="card-body p-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="table-responsive">
+                            <table class="table table-borderless mx-auto">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Hospital:</th>
+                                        <td>@Html.DisplayFor(model => model.IdHospital)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Nombre:</th>
+                                        <td>@Html.DisplayFor(model => model.Nombre)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Dirección:</th>
+                                        <td>@Html.DisplayFor(model => model.Direccion)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Teléfono:</th>
+                                        <td>@Html.DisplayFor(model => model.Telefono)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <input type="button" value="Volver" class="btn btn-secondary btn-lg"
+                               onclick="document.location.href = '@Url.Content("~/Hospital/mantHospitales")'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

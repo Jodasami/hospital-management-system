@@ -1,0 +1,111 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mPago>
+@{
+    ViewBag.Title = "mantPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Gestionar Pagos</h2>
+    <br />
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <input type="button" class="btn btn-success btn-lg" onclick="document.location.href = '@Url.Content("~/Pago/agregarPagos")'" value="Agregar Pago" />
+        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">Id Pago</th>
+                    <th class="text-center">Paciente</th>
+                    <th class="text-center">Id - Tratamiento</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Cancelado</th>
+                    <th class="text-center">Detalles</th>
+                    <th class="text-center">Editar</th>
+                    <th class="text-center">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fila in Model)
+                {
+                    <tr>
+                        <td class="text-center">@fila.IdPago</td>
+                        <td class="text-center">@fila.IdPaciente - @fila.Paciente</td>
+                        <td class="text-center">@fila.IdTratamiento - @fila.Medicamento</td>
+                        <td class="text-center">@fila.Fecha.ToString("dd-MM-yyyy")</td>
+                        @if (fila.Pagado == false)
+                        {
+
+
+                            <td class="text-center">No</td>
+                        }
+                        else
+                        {
+                            <td class="text-center">Sí</td>
+                        }
+
+                        <td class="text-center"><input type="button" value="Ver" class="btn btn-outline-dark btn-sm" onclick="document.location.href = '@Url.Content("~/Pago/consultarPagos/" + fila.IdPago)'" /></td>
+                        <td class="text-center"><input type="button" value="Editar" class="btn btn-outline-primary btn-sm" onclick="document.location.href = '@Url.Content("~/Pago/actualizarPagos/" + fila.IdPago)'" /></td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-danger btn-sm open-delete-modal"
+                                    data-toggle="modal"
+                                    data-target="#confirmDeleteModal"
+                                    data-id="@fila.IdPago">
+                                Eliminar
+                            </button>
+                        </td>
+                        @*<td><input type="button" value="Eliminar" class="btn btn-danger" onclick="document.location.href = '@Url.Content("~/Paciente/EliminarPacientes/" + fila.IdPaciente)'" /></td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar eliminación</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar el pago con ID <strong id="idPagoModal"></strong>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a href="#" id="btnConfirmDelete" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var idPago = button.data('id');
+
+                // Mostrar el ID en el modal
+                $('#idPagoModal').text(idPago);
+
+                // Generar la URL de eliminación
+                var url = '@Url.Action("eliminarPagos", "Pago")' + '?id=' + idPago;
+                $('#btnConfirmDelete').attr('href', url);
+            });
+        });
+        </script>
+    }
+
+
+
+

@@ -1,0 +1,99 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mPago
+@{
+    ViewBag.Title = "actualizarPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center text-success">Actualizar Pago</h2>
+<br />
+
+@if (ViewBag.ValorMensaje == 1 || ViewBag.ValorMensaje == 0)
+{
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-@(ViewBag.ValorMensaje == 1 ? "success" : "danger") text-white">
+                    <h5 class="modal-title">Mensaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-@(ViewBag.ValorMensaje == 1 ? "success" : "danger")">
+                        @ViewBag.MensajeProceso
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn @(ViewBag.ValorMensaje == 1 ? "btn-success" : "btn-danger")" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("actualizarPagos", "Pago", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-6">
+            @Html.HiddenFor(p => p.IdPago)
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(p => p.IdPaciente, htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(p => p.IdPaciente, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.IdPaciente, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(p => p.Fecha, htmlAttributes: new { @class = "font-weight-bold" })
+                <input type="date" class="form-control" name="Fecha" value="@Model.Fecha.ToString("yyyy-MM-dd")" />
+                @Html.ValidationMessageFor(p => p.Fecha, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(p => p.MetodoPago, htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(p => p.MetodoPago, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.MetodoPago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(p => p.IdTratamiento, htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(p => p.IdTratamiento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.IdTratamiento, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(p => p.Monto, htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(p => p.Monto, new { @class = "form-control", type = "number", step = "0.01" })
+                @Html.ValidationMessageFor(p => p.Monto, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                <div class="form-check form-switch">
+                    @Html.CheckBoxFor(p => p.Pagado, new { @class = "form-check-input", role = "switch" })
+                    @Html.LabelFor(p => p.Pagado, htmlAttributes: new { @class = "form-check-label font-weight-bold" })
+                </div>
+                @Html.ValidationMessageFor(p => p.Pagado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group text-center mt-4">
+        <input type="submit" class="btn btn-success btn-lg mx-2" value="Actualizar Pago" />
+        <a href="@Url.Action("mantPagos", "Pago")" class="btn btn-secondary btn-lg mx-2">Volver</a>
+    </div>
+}
+
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (@ViewBag.ValorMensaje == 1 || @ViewBag.ValorMensaje == 0) {
+                $('#myModal').modal('show');
+            }
+
+            $(".close, .btn-default").on("click", function () {
+                $("#myModal").modal("hide");
+            });
+        });
+    </script>
+}

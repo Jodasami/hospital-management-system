@@ -1,0 +1,51 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mCita>
+@{
+    ViewBag.Title = "verCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Ver Citas</h2>
+    <br />
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">Id Cita</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Hora</th>
+                    <th class="text-center">Id Medico</th>
+                    @*<th class="text-center">Id Paciente</th>*@
+                    <th class="text-center">Id Hospital</th>
+                    @*<th class="text-center">Diagnostico</th>*@
+                    <th class="text-center">Consultar Cita</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fila in Model)
+                {
+                    <tr>
+                        <td class="text-center">@fila.IdCita</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => fila.Fecha, "{0:d}")</td>
+                        <td class="text-center">@fila.Hora</td>
+                        <td class="text-center">@fila.IdMedico - @fila.Medico</td>
+                        @*<td class="text-center">@fila.IdPaciente</td>*@
+                        <td class="text-center">@fila.IdHospital - @fila.Hospital</td>
+                        @*<td class="text-center">@fila.Diagnostico</td>*@
+                        <td class="text-center"><input type="button" value="Consultar" class="btn btn-default" onclick="document.location.href = '@Url.Content("~/Cita/consultarCitas/" + fila.IdCita)'" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

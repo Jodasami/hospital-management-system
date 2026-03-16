@@ -1,0 +1,110 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mUsuario>
+@{
+    ViewBag.Title = "mantUsuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Gestión de Usuarios</h2>
+    <br />
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <input type="button" class="btn btn-success btn-lg"
+               onclick="document.location.href = '@Url.Action("AgregarUsuarios", "Usuario")'"
+               value="Agregar" />
+        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th  class="text-center">ID</th>
+                    <th  class="text-center">Usuario</th>
+                    <th  class="text-center">Rol</th>
+                    <th  class="text-center">Detalles</th>
+                    <th  class="text-center">Editar</th>
+                    <th  class="text-center">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td  class="text-center">@usuario.IdUsuario</td>
+                        <td  class="text-center">@usuario.UserName</td>
+                        @if (usuario.IdRol == 1)
+                        {
+                            <td  class="text-center">Paciente</td>
+                        }
+                        @if (usuario.IdRol == 2)
+                        {
+                            <td  class="text-center">Medico</td>
+                        }
+                        @if (usuario.IdRol == 3)
+                        {
+                            <td  class="text-center">Admin</td>
+                        }
+                        <td  class="text-center">
+                            <input type="button" value="Ver" class="btn btn-outline-dark btn-sm"
+                                   onclick="document.location.href = '@Url.Action("ConsultarUsuarios", "Usuario", new { id = usuario.IdUsuario })'" />
+                        </td>
+                        <td  class="text-center">
+                            <input type="button" value="Editar" class="btn btn-outline-primary btn-sm"
+                                   onclick="document.location.href = '@Url.Action("ActualizarUsuarios", "Usuario", new { id = usuario.IdUsuario })'" />
+                        </td>
+                        <td  class="text-center">
+                            <button type="button" class="btn btn-outline-danger btn-sm open-delete-modal"
+                                    data-toggle="modal"
+                                    data-target="#confirmDeleteModal"
+                                    data-id="@usuario.IdUsuario"
+                                    data-nombre="@usuario.UserName">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmar eliminación</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Deseas eliminar a <strong id="nombreUsuario"></strong> (ID: <strong id="idUsuario"></strong>)?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a href="#" id="btnConfirmDelete" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var usuarioId = button.data('id');
+                var usuarioNombre = button.data('nombre');
+
+                $('#nombreUsuario').text(usuarioNombre);
+                $('#idUsuario').text(usuarioId);
+                var url = '@Url.Action("EliminarUsuarios", "Usuario")' + '?id=' + usuarioId;
+                $('#btnConfirmDelete').attr('href', url);
+            });
+        });
+        </script>
+    }

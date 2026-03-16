@@ -1,0 +1,71 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mCita
+
+@{
+    ViewBag.Title = "consultarCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Detalles de la Cita</h3>
+                </div>
+                <div class="card-body p-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="table-responsive">
+                            <table class="table table-borderless mx-auto">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Cita:</th>
+                                        <td>@Html.DisplayFor(model => model.IdCita)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Fecha:</th>
+                                        <td>@Html.DisplayFor(model => model.Fecha)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Hora:</th>
+                                        <td>@Html.DisplayFor(model => model.Hora)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Médico:</th>
+                                        <td>@Html.DisplayFor(model => model.IdMedico)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Paciente:</th>
+                                        <td>@Html.DisplayFor(model => model.IdPaciente)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Hospital:</th>
+                                        <td>@Html.DisplayFor(model => model.IdHospital)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Diagnóstico:</th>
+                                        <td>@Html.DisplayFor(model => model.Diagnostico)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        @{
+                            string url;
+                            if (Session["Usuario"] != null && Convert.ToInt32(Session["Rol"]) == 1)
+                            {
+                                url = Url.Content("~/Cita/verCitas");
+                            }
+                            else
+                            {
+                                url = Url.Content("~/Cita/mantCitas");
+                            }
+                        }
+                        <input type="button" value="Volver" class="btn btn-secondary btn-lg"
+                               onclick="document.location.href='@url'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

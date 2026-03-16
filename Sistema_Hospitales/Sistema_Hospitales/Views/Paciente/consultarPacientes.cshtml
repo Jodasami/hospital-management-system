@@ -1,0 +1,63 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mPaciente
+@{
+    ViewBag.Title = "consultarPacientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Detalles del Paciente</h3>
+                </div>
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-center">
+                        <div class="table-responsive" style="width: 90%">
+                            <table class="table table-borderless mx-auto">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-end pe-3" style="width: 30%">ID Paciente:</th>
+                                        <td>@Html.DisplayFor(model => model.IdPaciente)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Nombre:</th>
+                                        <td>@Html.DisplayFor(model => model.Nombre)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Apellido:</th>
+                                        <td>@Html.DisplayFor(model => model.Apellido)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Fecha de Nacimiento:</th>
+                                        <td>@Html.DisplayFor(model => model.FechaNacimiento)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Género:</th>
+                                        <td>@Html.DisplayFor(model => model.Genero)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Dirección:</th>
+                                        <td>@Html.DisplayFor(model => model.Direccion)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">Teléfono:</th>
+                                        <td>@Html.DisplayFor(model => model.Telefono)</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-end pe-3">ID Hospital:</th>
+                                        <td>@Html.DisplayFor(model => model.IdHospital)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <input type="button" value="Volver" class="btn btn-secondary btn-lg"
+                               onclick="document.location.href = '@Url.Content("~/Paciente/mantPacientes")'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

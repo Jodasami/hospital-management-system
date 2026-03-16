@@ -1,0 +1,112 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mPaciente
+@{
+    ViewBag.Title = "ActualizarPacientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center text-success">Actualizar Paciente</h2>
+<br />
+
+@if (ViewBag.ValorMensaje == 1 || ViewBag.ValorMensaje == 0)
+{
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-@(ViewBag.ValorMensaje == 1 ? "success" : "danger") text-white">
+                    <h5 class="modal-title">Mensaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-@(ViewBag.ValorMensaje == 1 ? "success" : "danger")">
+                        @ViewBag.MensajeProceso
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn @(ViewBag.ValorMensaje == 1 ? "btn-success" : "btn-danger")" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("ActualizarPacientes", "Paciente", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <!-- Columna izquierda -->
+            <div class="col-md-6">
+                @Html.HiddenFor(u => u.IdPaciente)
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.Nombre, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.TextBoxFor(u => u.Nombre, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Nombre, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.Apellido, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.TextBoxFor(u => u.Apellido, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Apellido, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.FechaNacimiento, htmlAttributes: new { @class = "font-weight-bold" })
+                    <input type="date" class="form-control" name="FechaNacimiento" value="@Model.FechaNacimiento.ToString("yyyy-MM-dd")" />
+                    @Html.ValidationMessageFor(u => u.FechaNacimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.Genero, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.DropDownListFor(u => u.Genero, new List<SelectListItem>
+                    {
+                        new SelectListItem() { Text = "FEMENINO", Value = "F" },
+                        new SelectListItem() { Text = "MASCULINO", Value = "M" }
+                    }, "Seleccione un género", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Genero, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.Direccion, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.TextBoxFor(u => u.Direccion, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Direccion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.Telefono, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.TextBoxFor(u => u.Telefono, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Telefono, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mb-3">
+                    @Html.LabelFor(u => u.IdHospital, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.DropDownListFor(u => u.IdHospital, ViewBag.Hospitales as SelectList, "Seleccione un hospital", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.IdHospital, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-group text-center mt-4">
+            <input type="submit" value="Actualizar Paciente" class="btn btn-success btn-lg mx-2" />
+            <a href="@Url.Action("mantPacientes", "Paciente")" class="btn btn-secondary btn-lg mx-2">Volver</a>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (@ViewBag.ValorMensaje == 1 || @ViewBag.ValorMensaje == 0) {
+                $('#myModal').modal('show');
+            }
+
+            // Cerrar modal manualmente si el botón no funciona
+            $(".close, .btn-default").on("click", function () {
+                $("#myModal").modal("hide");
+            });
+        });
+    </script>
+}

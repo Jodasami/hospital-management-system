@@ -1,0 +1,45 @@
+﻿@model List<Sistema_Hospitales.Models.viewModels.mPaciente>
+@{
+    ViewBag.Title = "verPacientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="fw-bold text-dark align-content-center">Pacientes Atendidos</h2>
+    <br />
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="document.location.href = '@Url.Content("~/Home/Dashboard")'" />
+    </div>
+
+    <div class="table-responsive shadow rounded-4 bg-secondary p-3" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-hover table-secondary table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">Cédula</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Apellido</th>
+                    <th class="text-center">Fecha de Nacimiento</th>
+                    <th class="text-center">Género</th>
+                    <th class="text-center">Dirección</th>
+                    <th class="text-center">Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td class="text-center">@p.IdPaciente</td>
+                        <td class="text-center">@p.Nombre</td>
+                        <td class="text-center">@p.Apellido</td>
+                        <td class="text-center">@p.FechaNacimiento.ToString("dd-MM-yyyy")</td>
+                        <td class="text-center">@p.Genero</td>
+                        <td class="text-center">@p.Direccion</td>
+                        <td class="text-center">@p.Telefono</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

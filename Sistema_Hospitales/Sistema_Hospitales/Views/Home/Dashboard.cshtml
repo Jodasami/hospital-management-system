@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int rol = Convert.ToInt16(Session["Rol"]);
+    string usuario = Session["Usuario"]?.ToString();
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Bienvenida -->
+        <div class="col-12 mb-4">
+            <div class="card shadow-lg p-4 text-white bg-success rounded-4">
+                <h2 class="fw-bold">¡Bienvenido, @usuario!</h2>
+            </div>
+        </div>
+
+        <!-- Información general -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Hora Actual</h5>
+                    <p class="card-text fs-3" id="horaActual">--:--:--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Fecha</h5>
+                    <p class="card-text fs-3">@DateTime.Now.ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+        </div>
+        <!-- Secciones específicas por rol -->
+        @if (rol == 2)
+        {
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow border-start border-success border-5">
+                        <div class="card-body">
+                            <h5 class="card-title">Citas para hoy</h5>
+                            <p>Revisar próximas consultas</p>
+                            <br />
+                            <a href="@Url.Action("mantCitas", "Cita")" class="btn btn-outline-warning btn-sm">Ver Citas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow border-start border-secondary border-5">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Frase del día</h5>
+                            <blockquote class="blockquote mb-0">
+                                <p class="mb-2">"Cuidar de otros es una forma de cuidar de uno mismo."</p>
+                                <br />
+                                <footer class="blockquote-footer">Anónimo</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (rol == 1)
+        {
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow border-start border-success border-5">
+                <div class="card-body">
+                    <h5 class="card-title">Tus citas y tratamientos</h5>
+                    <p>Consulta tu historial y ver citas.</p>
+                    <br />
+                    <a href="@Url.Action("verCitas", "Cita")" class="btn btn-outline-warning btn-sm">Ver Historial</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow border-start border-secondary border-5">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Frase del día</h5>
+                    <blockquote class="blockquote mb-0">
+                        <p class="mb-2">"Cuidar de otros es una forma de cuidar de uno mismo."</p>
+                        <br />
+                        <footer class="blockquote-footer">Anónimo</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+        }
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script>
+        function actualizarHora() {
+            const ahora = new Date();
+            const hora = ahora.toLocaleTimeString();
+            document.getElementById('horaActual').textContent = hora;
+        }
+        setInterval(actualizarHora, 1000);
+        actualizarHora();
+    </script>
+}

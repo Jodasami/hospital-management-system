@@ -1,0 +1,23 @@
+﻿body {
+    background: linear-gradient(to right, #e3f2fd, #fff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-card-bg {
+    background-color: #ffffffee;
+}
+
+.card h3 {
+    font-weight: 600;
+}
+
+table {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

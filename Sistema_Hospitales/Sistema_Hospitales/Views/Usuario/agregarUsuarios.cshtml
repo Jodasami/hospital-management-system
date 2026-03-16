@@ -1,0 +1,115 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mUsuario
+@{
+    ViewBag.Title = "agregarUsuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-center mb-4">Agregar Usuario</h2>
+
+@if (ViewBag.ValorMensaje == 1 || ViewBag.ValorMensaje == 0)
+{
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Mensaje</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert @(ViewBag.ValorMensaje == 1 ? "alert-success" : "alert-danger")">
+                        @ViewBag.MensajeProceso
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn @(ViewBag.ValorMensaje == 1 ? "btn-success" : "btn-danger")" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container">
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            @using (Html.BeginForm("agregarUsuarios", "Usuario", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(u => u.UserName)
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.UserName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(u => u.Contrasena)
+                            @Html.PasswordFor(u => u.Contrasena, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.Contrasena, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3">
+                            @Html.LabelFor(u => u.IdRol)
+                            @Html.DropDownListFor(u => u.IdRol, new List<SelectListItem>
+                            {
+                                new SelectListItem() { Text = "Admin", Value = "3" },
+                                new SelectListItem() { Text = "Paciente", Value = "1" },
+                                new SelectListItem() { Text = "Medico", Value = "2" }
+                            }, new { @class = "form-control", @id = "IdRol" })
+                            @Html.ValidationMessage("IdRol", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3" id="grupoPaciente">
+                            @Html.LabelFor(u => u.IdPaciente)
+                            @Html.DropDownListFor(u => u.IdPaciente, ViewBag.ListaPacientes as List<SelectListItem>, "Seleccione un paciente", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.IdPaciente, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-3" id="grupoMedico">
+                            @Html.LabelFor(u => u.IdMedico)
+                            @Html.DropDownListFor(u => u.IdMedico, ViewBag.ListaMedicos as List<SelectListItem>, "Seleccione un médico", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(u => u.IdMedico, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <input type="submit" class="btn btn-success w-100 me-2" value="Agregar" />
+                            <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="location.href='@Url.Action("mantUsuarios", "Usuario")'" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            // Ejecutar siempre que cambie el rol
+            $("#IdRol").on("change", function () {
+                actualizarCampos();
+            });
+
+            // Ejecutar después de que el DOM esté completamente cargado
+            setTimeout(function () {
+                actualizarCampos();
+            }, 100); // Pequeño delay para asegurar que todo se haya renderizado
+        });
+
+        function actualizarCampos() {
+            var rol = $("#IdRol").val();
+
+            if (rol === "1") {
+                $("#grupoPaciente").show();
+                $("#grupoMedico").hide();
+            } else if (rol === "2") {
+                $("#grupoPaciente").hide();
+                $("#grupoMedico").show();
+            } else {
+                $("#grupoPaciente").hide();
+                $("#grupoMedico").hide();
+            }
+        }
+    </script>
+}

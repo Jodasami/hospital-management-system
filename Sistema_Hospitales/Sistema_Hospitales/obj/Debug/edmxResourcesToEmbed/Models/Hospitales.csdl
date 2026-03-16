@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SistemaHospitalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IdCita" />
+    </Key>
+    <Property Name="IdCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Hora" Type="Time" Precision="7" />
+    <Property Name="IdMedico" Type="Int32" />
+    <Property Name="IdPaciente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdHospital" Type="Int32" />
+    <Property Name="Diagnostico" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hospital" Relationship="Self.FK__Cita__IdHospital__2E1BDC42" FromRole="Cita" ToRole="Hospital" />
+    <NavigationProperty Name="Medico" Relationship="Self.FK__Cita__IdMedico__2C3393D0" FromRole="Cita" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Cita__IdPaciente__2D27B809" FromRole="Cita" ToRole="Paciente" />
+    <NavigationProperty Name="Tratamiento" Relationship="Self.FK__Tratamien__IdCit__30F848ED" FromRole="Cita" ToRole="Tratamiento" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="IdHospital" />
+    </Key>
+    <Property Name="IdHospital" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cita" Relationship="Self.FK__Cita__IdHospital__2E1BDC42" FromRole="Hospital" ToRole="Cita" />
+    <NavigationProperty Name="Medicamento_Hospital" Relationship="Self.FK__Medicamen__IdHos__35BCFE0A" FromRole="Hospital" ToRole="Medicamento_Hospital" />
+    <NavigationProperty Name="Medico" Relationship="Self.FK__Medico__IdHospit__29572725" FromRole="Hospital" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Paciente__IdHosp__267ABA7A" FromRole="Hospital" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CostoUnidad" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Medicamento_Hospital" Relationship="Self.FK__Medicamen__IdMed__36B12243" FromRole="Medicamento" ToRole="Medicamento_Hospital" />
+    <NavigationProperty Name="Tratamiento_Medicamento" Relationship="Self.FK__Tratamien__IdMed__3A81B327" FromRole="Medicamento" ToRole="Tratamiento_Medicamento" />
+  </EntityType>
+  <EntityType Name="Medicamento_Hospital">
+    <Key>
+      <PropertyRef Name="IdHospital" />
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdHospital" Type="Int32" Nullable="false" />
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="CantidadDisponible" Type="Int32" />
+    <NavigationProperty Name="Hospital" Relationship="Self.FK__Medicamen__IdHos__35BCFE0A" FromRole="Medicamento_Hospital" ToRole="Hospital" />
+    <NavigationProperty Name="Medicamento" Relationship="Self.FK__Medicamen__IdMed__36B12243" FromRole="Medicamento_Hospital" ToRole="Medicamento" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="IdMedico" />
+    </Key>
+    <Property Name="IdMedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Especialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdHospital" Type="Int32" />
+    <NavigationProperty Name="Cita" Relationship="Self.FK__Cita__IdMedico__2C3393D0" FromRole="Medico" ToRole="Cita" />
+    <NavigationProperty Name="Hospital" Relationship="Self.FK__Medico__IdHospit__29572725" FromRole="Medico" ToRole="Hospital" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IdMedic__45F365D3" FromRole="Medico" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="IdPaciente" />
+    </Key>
+    <Property Name="IdPaciente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IdHospital" Type="Int32" />
+    <NavigationProperty Name="Cita" Relationship="Self.FK__Cita__IdPaciente__2D27B809" FromRole="Paciente" ToRole="Cita" />
+    <NavigationProperty Name="Hospital" Relationship="Self.FK__Paciente__IdHosp__267ABA7A" FromRole="Paciente" ToRole="Hospital" />
+    <NavigationProperty Name="Pago" Relationship="Self.FK__Pago__IdPaciente__3D5E1FD2" FromRole="Paciente" ToRole="Pago" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IdPacie__44FF419A" FromRole="Paciente" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="IdPago" />
+    </Key>
+    <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPaciente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdTratamiento" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pagado" Type="Boolean" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Pago__IdPaciente__3D5E1FD2" FromRole="Pago" ToRole="Paciente" />
+    <NavigationProperty Name="Tratamiento" Relationship="Self.FK__Pago__IdTratamie__3E52440B" FromRole="Pago" ToRole="Tratamiento" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" />
+    <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IdRol__440B1D61" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tratamiento">
+    <Key>
+      <PropertyRef Name="IdTratamiento" />
+    </Key>
+    <Property Name="IdTratamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCita" Type="Int32" />
+    <Property Name="CostoTotal" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Cita" Relationship="Self.FK__Tratamien__IdCit__30F848ED" FromRole="Tratamiento" ToRole="Cita" />
+    <NavigationProperty Name="Pago" Relationship="Self.FK__Pago__IdTratamie__3E52440B" FromRole="Tratamiento" ToRole="Pago" />
+    <NavigationProperty Name="Tratamiento_Medicamento" Relationship="Self.FK__Tratamien__IdTra__398D8EEE" FromRole="Tratamiento" ToRole="Tratamiento_Medicamento" />
+  </EntityType>
+  <EntityType Name="Tratamiento_Medicamento">
+    <Key>
+      <PropertyRef Name="IdTratamiento" />
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdTratamiento" Type="Int32" Nullable="false" />
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <NavigationProperty Name="Medicamento" Relationship="Self.FK__Tratamien__IdMed__3A81B327" FromRole="Tratamiento_Medicamento" ToRole="Medicamento" />
+    <NavigationProperty Name="Tratamiento" Relationship="Self.FK__Tratamien__IdTra__398D8EEE" FromRole="Tratamiento_Medicamento" ToRole="Tratamiento" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdRol" Type="Int32" Nullable="false" />
+    <Property Name="IdPaciente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdMedico" Type="Int32" />
+    <NavigationProperty Name="Medico" Relationship="Self.FK__Usuario__IdMedic__45F365D3" FromRole="Usuario" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Usuario__IdPacie__44FF419A" FromRole="Usuario" ToRole="Paciente" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK__Usuario__IdRol__440B1D61" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK__Cita__IdHospital__2E1BDC42">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IdMedico__2C3393D0">
+    <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IdPaciente__2D27B809">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdCit__30F848ED">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="0..1" />
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IdCita" />
+      </Principal>
+      <Dependent Role="Tratamiento">
+        <PropertyRef Name="IdCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicamen__IdHos__35BCFE0A">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+    <End Role="Medicamento_Hospital" Type="Self.Medicamento_Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Medicamento_Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medico__IdHospit__29572725">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Medico" Type="Self.Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paciente__IdHosp__267ABA7A">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicamen__IdMed__36B12243">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1" />
+    <End Role="Medicamento_Hospital" Type="Self.Medicamento_Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="Medicamento_Hospital">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdMed__3A81B327">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1" />
+    <End Role="Tratamiento_Medicamento" Type="Self.Tratamiento_Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="Tratamiento_Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdMedic__45F365D3">
+    <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IdPaciente__3D5E1FD2">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdPacie__44FF419A">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IdTratamie__3E52440B">
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratamiento">
+        <PropertyRef Name="IdTratamiento" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IdTratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdRol__440B1D61">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdTra__398D8EEE">
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="1" />
+    <End Role="Tratamiento_Medicamento" Type="Self.Tratamiento_Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratamiento">
+        <PropertyRef Name="IdTratamiento" />
+      </Principal>
+      <Dependent Role="Tratamiento_Medicamento">
+        <PropertyRef Name="IdTratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SistemaHospitalesEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cita" EntityType="Self.Cita" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" />
+    <EntitySet Name="Medicamento" EntityType="Self.Medicamento" />
+    <EntitySet Name="Medicamento_Hospital" EntityType="Self.Medicamento_Hospital" />
+    <EntitySet Name="Medico" EntityType="Self.Medico" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" />
+    <EntitySet Name="Tratamiento_Medicamento" EntityType="Self.Tratamiento_Medicamento" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Cita__IdHospital__2E1BDC42" Association="Self.FK__Cita__IdHospital__2E1BDC42">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IdMedico__2C3393D0" Association="Self.FK__Cita__IdMedico__2C3393D0">
+      <End Role="Medico" EntitySet="Medico" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IdPaciente__2D27B809" Association="Self.FK__Cita__IdPaciente__2D27B809">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdCit__30F848ED" Association="Self.FK__Tratamien__IdCit__30F848ED">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicamen__IdHos__35BCFE0A" Association="Self.FK__Medicamen__IdHos__35BCFE0A">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Medicamento_Hospital" EntitySet="Medicamento_Hospital" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medico__IdHospit__29572725" Association="Self.FK__Medico__IdHospit__29572725">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Medico" EntitySet="Medico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paciente__IdHosp__267ABA7A" Association="Self.FK__Paciente__IdHosp__267ABA7A">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicamen__IdMed__36B12243" Association="Self.FK__Medicamen__IdMed__36B12243">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Medicamento_Hospital" EntitySet="Medicamento_Hospital" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdMed__3A81B327" Association="Self.FK__Tratamien__IdMed__3A81B327">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Tratamiento_Medicamento" EntitySet="Tratamiento_Medicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdMedic__45F365D3" Association="Self.FK__Usuario__IdMedic__45F365D3">
+      <End Role="Medico" EntitySet="Medico" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IdPaciente__3D5E1FD2" Association="Self.FK__Pago__IdPaciente__3D5E1FD2">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdPacie__44FF419A" Association="Self.FK__Usuario__IdPacie__44FF419A">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IdTratamie__3E52440B" Association="Self.FK__Pago__IdTratamie__3E52440B">
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdRol__440B1D61" Association="Self.FK__Usuario__IdRol__440B1D61">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdTra__398D8EEE" Association="Self.FK__Tratamien__IdTra__398D8EEE">
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+      <End Role="Tratamiento_Medicamento" EntitySet="Tratamiento_Medicamento" />
+    </AssociationSet>
+    <FunctionImport Name="InventarioYPrescripciones" ReturnType="Collection(SistemaHospitalesModel.InventarioYPrescripciones_Result)">
+      <Parameter Name="IdHospital" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ObtenerPacientesPorMedico" ReturnType="Collection(SistemaHospitalesModel.ObtenerPacientesPorMedico_Result)">
+      <Parameter Name="IdMedico" Mode="In" Type="Int32" />
+      <Parameter Name="IdHospital" Mode="In" Type="Int32" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="PagosPendientesPorPaciente" ReturnType="Collection(SistemaHospitalesModel.PagosPendientesPorPaciente_Result)">
+      <Parameter Name="IdPaciente" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RegistrarNuevaCita">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Hora" Mode="In" Type="Time" />
+      <Parameter Name="IdMedico" Mode="In" Type="Int32" />
+      <Parameter Name="IdPaciente" Mode="In" Type="String" />
+      <Parameter Name="IdHospital" Mode="In" Type="Int32" />
+      <Parameter Name="Diagnostico" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SistemaHospitalesModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SistemaHospitalesModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="TotalPagosRealizadosPorPaciente" ReturnType="Collection(Decimal)">
+      <Parameter Name="IdPaciente" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="InventarioYPrescripciones_Result">
+    <Property Type="Int32" Name="IdMedicamento" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="CantidadDisponible" Nullable="true" />
+    <Property Type="Int32" Name="CantidadPrescritaUltimos30Dias" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ObtenerPacientesPorMedico_Result">
+    <Property Type="String" Name="IdPaciente" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PagosPendientesPorPaciente_Result">
+    <Property Type="Int32" Name="IdPago" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="MetodoPago" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,78 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mTratamiento
+@{
+    ViewBag.Title = "actualizarTratamientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-success mb-4">Actualizar Tratamiento</h2>
+
+<!-- Modal de mensajes -->
+@if (ViewBag.ValorMensaje != null)
+{
+    <div class="modal fade show" id="myModal" tabindex="-1" role="dialog" style="display:block; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-@(ViewBag.ValorMensaje == 1 ? "success" : "danger") text-white">
+                    <h5 class="modal-title">Mensaje</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" onclick="document.getElementById('myModal').style.display='none';">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-@(ViewBag.ValorMensaje == 1 ? "success" : "danger") m-0">
+                        @ViewBag.MensajeProceso
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('myModal').style.display='none';">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("actualizarTratamientos", "Tratamiento", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
+    <div class="card shadow p-4">
+        <div class="row">
+            <div class="col-md-8">
+                @Html.HiddenFor(u => u.IdTratamiento)
+
+                <div class="form-group">
+                    @Html.LabelFor(u => u.IdCita, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.DropDownListFor(u => u.IdCita, (SelectList)ViewBag.Citas, "Seleccione una cita", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.IdCita, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(u => u.CostoTotal, htmlAttributes: new { @class = "font-weight-bold" })
+                    @Html.TextBoxFor(u => u.CostoTotal, new { @class = "form-control", placeholder = "Ingrese el costo total" })
+                    @Html.ValidationMessageFor(u => u.CostoTotal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex flex-column justify-content-start">
+                <button type="submit" class="btn btn-success btn-lg mb-3">
+                    <i class="fas fa-save"></i> Actualizar Tratamiento
+                </button>
+
+                <a href="@Url.Action("mantTratamientos", "Tratamiento")" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+    $(document).ready(function () {
+        if (@ViewBag.ValorMensaje == 1 || @ViewBag.ValorMensaje == 0) {
+            $('#myModal').modal('show');
+        }
+
+        $(".close, .btn-default").on("click", function () {
+            $("#myModal").modal("hide");
+        });
+    });
+    </script>
+}
+
+

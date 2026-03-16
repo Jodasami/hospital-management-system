@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49577ec0c9904698a3acc1463788963c" Name="Diagram1">
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Cita" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Hospital" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Medicamento" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Medicamento_Hospital" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Medico" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Paciente" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Pago" Width="1.5" PointX="9.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Rol" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Tratamiento" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Tratamiento_Medicamento" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaHospitalesModel.Usuario" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Cita__IdHospital__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Cita__IdMedico__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Cita__IdPaciente__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Tratamien__IdCit__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Medicamen__IdHos__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Medico__IdHospit__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Paciente__IdHosp__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Medicamen__IdMed__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Tratamien__IdMed__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Usuario__IdMedic__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Pago__IdPaciente__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Usuario__IdPacie__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Pago__IdTratamie__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Usuario__IdRol__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaHospitalesModel.FK__Tratamien__IdTra__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

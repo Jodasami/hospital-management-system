@@ -1,0 +1,75 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "ObtenerPacientesPorMedico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        @using (Html.BeginForm("ObtenerPacientesPorMedico", "Cita", FormMethod.Get, new { @class = "row g-3" }))
+        {
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Médico:</label>
+                @Html.DropDownList("idMedico", (IEnumerable<SelectListItem>)ViewBag.Medicos, "Seleccione un médico", new { @class = "form-select" })
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Hospital:</label>
+                @Html.DropDownList("idHospital", (IEnumerable<SelectListItem>)ViewBag.Hospitales, "Seleccione un hospital", new { @class = "form-select" })
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Fecha de inicio:</label>
+                <input type="date" name="fechaInicio" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Fecha de fin:</label>
+                <input type="date" name="fechaFin" class="form-control" />
+            </div>
+
+            <div class="col-12 d-flex justify-content-end mt-3">
+                <button type="submit" class="btn btn-primary px-4">Buscar</button>
+            </div>
+        }
+    </div>
+</div>
+
+@if (ViewBag.ResultadosPacientes != null && ViewBag.ResultadosPacientes.Count > 0)
+{
+    <div class="mt-5">
+        <h3 class="text-success mb-3">Pacientes Atendidos</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">IdPaciente</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in ViewBag.ResultadosPacientes)
+                    {
+                        <tr>
+                            <td>@p.IdPaciente</td>
+                            <td>@p.Nombre</td>
+                            <td>@p.Apellido</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else if (ViewBag.ResultadosPacientes != null)
+{
+    <div class="alert alert-warning mt-5 text-center" role="alert">
+         No existen pacientes para los filtros seleccionados.
+    </div>
+}
+
+<div class="mt-4 text-center">
+    <button type="button" class="btn btn-outline-secondary btn-lg px-5" onclick="document.location.href='@Url.Content("~/Home/Dashboard")'">
+         Volver
+    </button>
+</div>

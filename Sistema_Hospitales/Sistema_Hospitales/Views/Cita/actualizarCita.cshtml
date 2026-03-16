@@ -1,0 +1,111 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mCita
+@{
+    ViewBag.Title = "actualizarCita";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="text-success">Actualizar Cita</h2>
+
+        @if (ViewBag.ValorMensaje == 1 || ViewBag.ValorMensaje == 0)
+        {
+            var modalClass = ViewBag.ValorMensaje == 1 ? "success" : "danger";
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-@modalClass">
+                        <div class="modal-header bg-@modalClass text-white">
+                            <h5 class="modal-title" id="modalLabel">Mensaje del Sistema</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-@modalClass mb-0">
+                                @ViewBag.MensajeProceso
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="card shadow border-0">
+            <div class="card-body">
+                @using (Html.BeginForm("actualizarCita", "Cita", FormMethod.Post))
+                {
+                    @Html.HiddenFor(u => u.IdCita)
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Fecha, new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(m => m.Fecha, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                            @Html.ValidationMessage("fechaCita", null, new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Hora, new { @class = "form-label fw-bold" })
+                            @Html.TextBoxFor(m => m.Hora, new { @class = "form-control", type = "time" })
+                            @Html.ValidationMessage("horaCita", null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @if (Session["Usuario"] != null && Convert.ToInt32(Session["Rol"]) != 2)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.IdMedico, "Médico", new { @class = "form-label fw-bold" })
+                                @Html.DropDownListFor(model => model.IdMedico, (IEnumerable<SelectListItem>)ViewBag.Medicos, "Seleccione un médico", new { @class = "form-control" })
+                                @Html.ValidationMessage("IdMedico", null, new { @class = "text-danger" })
+                            </div>
+                        }
+                        else if (Session["Usuario"] != null && Convert.ToInt32(Session["Rol"]) == 2)
+                        {
+                            @Html.HiddenFor(m => m.IdMedico, new { @Value = ViewBag.IdMedico })
+                        }
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.IdPaciente, "Paciente", new { @class = "form-label fw-bold" })
+                            @Html.DropDownListFor(model => model.IdPaciente, (IEnumerable<SelectListItem>)ViewBag.Pacientes, "Seleccione un paciente", new { @class = "form-control" })
+                            @Html.ValidationMessage("idPaciente", null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.IdHospital, "Hospital", new { @class = "form-label fw-bold" })
+                        @Html.DropDownListFor(model => model.IdHospital, (IEnumerable<SelectListItem>)ViewBag.Hospitales, "Seleccione un hospital", new { @class = "form-control" })
+                        @Html.ValidationMessage("idHospital", null, new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mb-4">
+                        @Html.LabelFor(m => m.Diagnostico, new { @class = "form-label fw-bold" })
+                        @Html.TextAreaFor(m => m.Diagnostico, new { @class = "form-control", rows = 4 })
+                        @Html.ValidationMessage("diagnosticoCita", null, new { @class = "text-danger" })
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <input type="submit" value="Actualizar Cita" class="btn btn-success btn-lg px-4" />
+                        <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="window.location.href='@Url.Action("mantCitas", "Cita")'" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (@ViewBag.ValorMensaje == 1 || @ViewBag.ValorMensaje == 0) {
+                $('#myModal').modal('show');
+            }
+
+            // Cerrar modal manualmente si el botón no funciona
+            $(".close, .btn-default").on("click", function () {
+                $("#myModal").modal("hide");
+            });
+        });
+    </script>
+}
+
+

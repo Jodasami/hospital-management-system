@@ -1,0 +1,180 @@
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.csproj.AssemblyReference.cache
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.csproj.CoreCompileInputs.cache
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.dll.config
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.pdb
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.exe
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.exe.config
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.rsp
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.exe
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.exe.config
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.rsp
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.AppContext.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Collections.Immutable.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Console.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Globalization.Calendars.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.Compression.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.FileSystem.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Net.Http.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Net.Sockets.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Reflection.Metadata.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.ValueTuple.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XPath.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.exe
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.exe.config
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.rsp
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\VBCSCompiler.exe
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\VBCSCompiler.exe.config
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Antlr3.Runtime.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.SqlServer.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.Web.Infrastructure.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Newtonsoft.Json.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Helpers.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Mvc.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Optimization.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Razor.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Deployment.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Razor.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\WebGrease.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.SqlServer.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Helpers.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Mvc.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Optimization.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Razor.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Deployment.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Razor.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Newtonsoft.Json.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Antlr3.Runtime.pdb
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Helpers.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Mvc.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Optimization.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Razor.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_.66CEBD94.Up2Date
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.dll
+C:\Universidad\UAM\2025\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.pdb
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.dll.config
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Sistema_Hospitales.pdb
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.exe
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.exe.config
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csc.rsp
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.exe
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.exe.config
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\csi.rsp
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.AppContext.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Collections.Immutable.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Console.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Globalization.Calendars.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.Compression.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.FileSystem.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Net.Http.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Net.Sockets.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Reflection.Metadata.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.ValueTuple.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XPath.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.exe
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.exe.config
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\vbc.rsp
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\VBCSCompiler.exe
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\roslyn\VBCSCompiler.exe.config
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Antlr3.Runtime.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.SqlServer.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.Web.Infrastructure.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Newtonsoft.Json.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Helpers.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Mvc.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Optimization.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Razor.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Deployment.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Razor.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\WebGrease.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\EntityFramework.SqlServer.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Helpers.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Mvc.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Optimization.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.Razor.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Deployment.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\System.Web.WebPages.Razor.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Newtonsoft.Json.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Antlr3.Runtime.pdb
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Helpers.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Mvc.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Optimization.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.Razor.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.csproj.AssemblyReference.cache
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.csproj.CoreCompileInputs.cache
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_.66CEBD94.Up2Date
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.dll
+C:\Universidad\UAM\2025\Cuatrimestre I\Base de Datos II\Proyecto Base de datos\Sistema_Hospitales\Sistema_Hospitales\obj\Debug\Sistema_Hospitales.pdb

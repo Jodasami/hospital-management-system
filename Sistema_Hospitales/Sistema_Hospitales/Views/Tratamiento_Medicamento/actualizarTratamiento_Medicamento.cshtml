@@ -1,0 +1,75 @@
+﻿@model Sistema_Hospitales.Models.viewModels.mTratamiento_Medicamento
+@{
+    ViewBag.Title = "actualizarTratamiento_Medicamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-primary mb-4">Actualizar Medicamento en Tratamiento</h2>
+
+<!-- MODAL -->
+@if (ViewBag.ValorMensaje != null)
+{
+    string modalClass = (int)ViewBag.ValorMensaje == 1 ? "alert-success" : "alert-danger";
+    <div class="modal fade show" id="myModal" role="dialog" style="display:block; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content shadow">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">Mensaje</h5>
+                    <button type="button" class="close" onclick="$('#myModal').hide()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert @modalClass">@ViewBag.MensajeProceso</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="$('#myModal').hide()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("actualizarTratamiento_Medicamento", "Tratamiento_Medicamento", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2 bg-light p-4 rounded shadow">
+            @Html.HiddenFor(u => u.IdTratamiento)
+            @Html.HiddenFor(u => u.IdMedicamento)
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.IdTratamiento, "Tratamiento", htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.DropDownListFor(u => u.IdTratamiento, (SelectList)ViewBag.Tratamientos, "Seleccione un tratamiento", new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(u => u.IdTratamiento, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.IdMedicamento, "Medicamento", htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.DropDownListFor(u => u.IdMedicamento, (SelectList)ViewBag.Medicamentos, "Seleccione un medicamento", new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(u => u.IdMedicamento, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(u => u.Cantidad, htmlAttributes: new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(u => u.Cantidad, new { @class = "form-control", type = "number", min = "1", placeholder = "Ingrese la cantidad" })
+                @Html.ValidationMessageFor(u => u.Cantidad, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex justify-content-between mt-4">
+                <input type="submit" class="btn btn-success btn-lg" value="Actualizar Medicamento" />
+                <input type="button" value="Volver" class="btn btn-secondary btn-lg" onclick="location.href='@Url.Action("mantTratamiento_Medicamento", "Tratamiento_Medicamento")'" />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (@(ViewBag.ValorMensaje ?? -1) != -1) {
+                $('#myModal').modal('show');
+            }
+
+            $(".close, .btn-secondary").on("click", function () {
+                $("#myModal").modal("hide");
+            });
+        });
+    </script>
+}

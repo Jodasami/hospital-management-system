@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistemaHospitalesModelStoreContainer" CdmEntityContainer="SistemaHospitalesEntities">
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdHospital" ColumnName="IdHospital" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hospital">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Hospital">
+        <MappingFragment StoreEntitySet="Hospital">
+          <ScalarProperty Name="IdHospital" ColumnName="IdHospital" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamento">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Medicamento">
+        <MappingFragment StoreEntitySet="Medicamento">
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CostoUnidad" ColumnName="CostoUnidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamento_Hospital">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Medicamento_Hospital">
+        <MappingFragment StoreEntitySet="Medicamento_Hospital">
+          <ScalarProperty Name="IdHospital" ColumnName="IdHospital" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="CantidadDisponible" ColumnName="CantidadDisponible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medico">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Medico">
+        <MappingFragment StoreEntitySet="Medico">
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdHospital" ColumnName="IdHospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paciente">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Paciente">
+        <MappingFragment StoreEntitySet="Paciente">
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdHospital" ColumnName="IdHospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pago">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Pago">
+        <MappingFragment StoreEntitySet="Pago">
+          <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdTratamiento" ColumnName="IdTratamiento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+          <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tratamiento">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Tratamiento">
+        <MappingFragment StoreEntitySet="Tratamiento">
+          <ScalarProperty Name="IdTratamiento" ColumnName="IdTratamiento" />
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+          <ScalarProperty Name="CostoTotal" ColumnName="CostoTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tratamiento_Medicamento">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Tratamiento_Medicamento">
+        <MappingFragment StoreEntitySet="Tratamiento_Medicamento">
+          <ScalarProperty Name="IdTratamiento" ColumnName="IdTratamiento" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="SistemaHospitalesModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InventarioYPrescripciones" FunctionName="SistemaHospitalesModel.Store.InventarioYPrescripciones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SistemaHospitalesModel.InventarioYPrescripciones_Result">
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CantidadDisponible" ColumnName="CantidadDisponible" />
+          <ScalarProperty Name="CantidadPrescritaUltimos30Dias" ColumnName="CantidadPrescritaUltimos30Dias" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ObtenerPacientesPorMedico" FunctionName="SistemaHospitalesModel.Store.ObtenerPacientesPorMedico">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SistemaHospitalesModel.ObtenerPacientesPorMedico_Result">
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PagosPendientesPorPaciente" FunctionName="SistemaHospitalesModel.Store.PagosPendientesPorPaciente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SistemaHospitalesModel.PagosPendientesPorPaciente_Result">
+          <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RegistrarNuevaCita" FunctionName="SistemaHospitalesModel.Store.RegistrarNuevaCita" />
+    <FunctionImportMapping FunctionImportName="TotalPagosRealizadosPorPaciente" FunctionName="SistemaHospitalesModel.Store.TotalPagosRealizadosPorPaciente" />
+  </EntityContainerMapping>
+</Mapping>

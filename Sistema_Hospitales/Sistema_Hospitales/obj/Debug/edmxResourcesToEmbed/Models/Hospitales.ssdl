@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SistemaHospitalesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IdCita" />
+    </Key>
+    <Property Name="IdCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Hora" Type="time" Precision="7" />
+    <Property Name="IdMedico" Type="int" />
+    <Property Name="IdPaciente" Type="varchar" MaxLength="20" />
+    <Property Name="IdHospital" Type="int" />
+    <Property Name="Diagnostico" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="IdHospital" />
+    </Key>
+    <Property Name="IdHospital" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdMedicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="CostoUnidad" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Medicamento_Hospital">
+    <Key>
+      <PropertyRef Name="IdHospital" />
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdHospital" Type="int" Nullable="false" />
+    <Property Name="IdMedicamento" Type="int" Nullable="false" />
+    <Property Name="CantidadDisponible" Type="int" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="IdMedico" />
+    </Key>
+    <Property Name="IdMedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Especialidad" Type="nvarchar" MaxLength="100" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdHospital" Type="int" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="IdPaciente" />
+    </Key>
+    <Property Name="IdPaciente" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="Genero" Type="char" MaxLength="1" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdHospital" Type="int" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="IdPago" />
+    </Key>
+    <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPaciente" Type="varchar" MaxLength="20" />
+    <Property Name="IdTratamiento" Type="int" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="MetodoPago" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pagado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" Nullable="false" />
+    <Property Name="NombreRol" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tratamiento">
+    <Key>
+      <PropertyRef Name="IdTratamiento" />
+    </Key>
+    <Property Name="IdTratamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCita" Type="int" />
+    <Property Name="CostoTotal" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tratamiento_Medicamento">
+    <Key>
+      <PropertyRef Name="IdTratamiento" />
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdTratamiento" Type="int" Nullable="false" />
+    <Property Name="IdMedicamento" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdRol" Type="int" Nullable="false" />
+    <Property Name="IdPaciente" Type="varchar" MaxLength="20" />
+    <Property Name="IdMedico" Type="int" />
+  </EntityType>
+  <Association Name="FK__Cita__IdHospital__2E1BDC42">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IdMedico__2C3393D0">
+    <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IdPaciente__2D27B809">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicamen__IdHos__35BCFE0A">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+    <End Role="Medicamento_Hospital" Type="Self.Medicamento_Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Medicamento_Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicamen__IdMed__36B12243">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1" />
+    <End Role="Medicamento_Hospital" Type="Self.Medicamento_Hospital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="Medicamento_Hospital">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medico__IdHospit__29572725">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Medico" Type="Self.Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paciente__IdHosp__267ABA7A">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="IdHospital" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="IdHospital" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IdPaciente__3D5E1FD2">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IdTratamie__3E52440B">
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratamiento">
+        <PropertyRef Name="IdTratamiento" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IdTratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdCit__30F848ED">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="0..1" />
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IdCita" />
+      </Principal>
+      <Dependent Role="Tratamiento">
+        <PropertyRef Name="IdCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdMed__3A81B327">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1" />
+    <End Role="Tratamiento_Medicamento" Type="Self.Tratamiento_Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="Tratamiento_Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tratamien__IdTra__398D8EEE">
+    <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="1" />
+    <End Role="Tratamiento_Medicamento" Type="Self.Tratamiento_Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tratamiento">
+        <PropertyRef Name="IdTratamiento" />
+      </Principal>
+      <Dependent Role="Tratamiento_Medicamento">
+        <PropertyRef Name="IdTratamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdMedic__45F365D3">
+    <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdPacie__44FF419A">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdRol__440B1D61">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="InventarioYPrescripciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHospital" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ObtenerPacientesPorMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdMedico" Type="int" Mode="In" />
+    <Parameter Name="IdHospital" Type="int" Mode="In" />
+    <Parameter Name="FechaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="PagosPendientesPorPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPaciente" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RegistrarNuevaCita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+    <Parameter Name="Hora" Type="time" Mode="In" />
+    <Parameter Name="IdMedico" Type="int" Mode="In" />
+    <Parameter Name="IdPaciente" Type="varchar" Mode="In" />
+    <Parameter Name="IdHospital" Type="int" Mode="In" />
+    <Parameter Name="Diagnostico" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TotalPagosRealizadosPorPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPaciente" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaFin" Type="date" Mode="In" />
+  </Function>
+  <EntityContainer Name="SistemaHospitalesModelStoreContainer">
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicamento_Hospital" EntityType="Self.Medicamento_Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tratamiento_Medicamento" EntityType="Self.Tratamiento_Medicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cita__IdHospital__2E1BDC42" Association="Self.FK__Cita__IdHospital__2E1BDC42">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IdMedico__2C3393D0" Association="Self.FK__Cita__IdMedico__2C3393D0">
+      <End Role="Medico" EntitySet="Medico" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IdPaciente__2D27B809" Association="Self.FK__Cita__IdPaciente__2D27B809">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicamen__IdHos__35BCFE0A" Association="Self.FK__Medicamen__IdHos__35BCFE0A">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Medicamento_Hospital" EntitySet="Medicamento_Hospital" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicamen__IdMed__36B12243" Association="Self.FK__Medicamen__IdMed__36B12243">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Medicamento_Hospital" EntitySet="Medicamento_Hospital" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medico__IdHospit__29572725" Association="Self.FK__Medico__IdHospit__29572725">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Medico" EntitySet="Medico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paciente__IdHosp__267ABA7A" Association="Self.FK__Paciente__IdHosp__267ABA7A">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IdPaciente__3D5E1FD2" Association="Self.FK__Pago__IdPaciente__3D5E1FD2">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IdTratamie__3E52440B" Association="Self.FK__Pago__IdTratamie__3E52440B">
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdCit__30F848ED" Association="Self.FK__Tratamien__IdCit__30F848ED">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdMed__3A81B327" Association="Self.FK__Tratamien__IdMed__3A81B327">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Tratamiento_Medicamento" EntitySet="Tratamiento_Medicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tratamien__IdTra__398D8EEE" Association="Self.FK__Tratamien__IdTra__398D8EEE">
+      <End Role="Tratamiento" EntitySet="Tratamiento" />
+      <End Role="Tratamiento_Medicamento" EntitySet="Tratamiento_Medicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdMedic__45F365D3" Association="Self.FK__Usuario__IdMedic__45F365D3">
+      <End Role="Medico" EntitySet="Medico" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdPacie__44FF419A" Association="Self.FK__Usuario__IdPacie__44FF419A">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdRol__440B1D61" Association="Self.FK__Usuario__IdRol__440B1D61">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
